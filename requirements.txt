@@ -1,0 +1,8 @@
+numpy==1.26.3
+soundfile==0.12.1
+tqdm==4.66.1
+#reccomend installing cuda support, see https://pytorch.org/#preview, (2.3 is currently nightly)
+torch==2.3.0
+torchaudio==2.2.0
+#only required for visualizations
+matplotlib==3.8.2

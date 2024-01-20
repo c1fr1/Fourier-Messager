@@ -1,6 +1,14 @@
+# python
+__pycache__/
+
+# venv
 bin
 include
 lib
 lib64
 share
 pyvenv.cfg
+
+# project
+test-audio
+fourier_messager/scratch.py
