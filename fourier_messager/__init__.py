@@ -1,3 +1,5 @@
-from util import load_sound
-from spectrograms import mel_spectrogram, add_img_to_spec
-from training import train_model
+from fourier_messager.util import load_sound
+from fourier_messager.spectrograms import mel_spectrogram, add_img_to_spec
+from fourier_messager.trainers import AudioTrainerConfig, AudioTrainer
+from fourier_messager.trainers_stereo import StereoAudioTrainer, HiddenStereoAudioTrainer
+from fourier_messager.trainers_mono import MonoAudioTrainer

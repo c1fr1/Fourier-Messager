@@ -1,7 +1,7 @@
 from torchaudio.transforms import MelSpectrogram
 import torch
 
-from util import load_greyscale_img
+from fourier_messager.util import load_greyscale_img
 
 def mel_spectrogram(audio : torch.Tensor, sr=44100, f_min=0, f_max=8000, n_fft=2048, n_mels=128, hop_length=512) :
     transform = MelSpectrogram(
@@ -15,7 +15,10 @@ def mel_spectrogram(audio : torch.Tensor, sr=44100, f_min=0, f_max=8000, n_fft=2
     ).to(device=audio.device)
 
     spec = transform(audio)
-    spec = spec[:, 2:(spec.shape[1] - 2)]
+    if len(spec.shape) == 2 :
+        spec = spec[:, 2:(spec.shape[1] - 2)]
+    elif len(spec.shape) == 3 :
+        spec = spec[:, :, 2:(spec.shape[2] - 2)]
     spec = 10 * torch.log10(spec)
     return spec
 
